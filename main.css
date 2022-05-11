@@ -22,6 +22,11 @@ td {
   width: 75px;
 }
 
+#mole {
+  height: 75px;
+  width: 75px;
+}
+
 .container{
     text-align: center;
 }
