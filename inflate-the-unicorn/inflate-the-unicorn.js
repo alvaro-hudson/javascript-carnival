@@ -44,7 +44,7 @@ function unicornClick(e) {
 for (let i = 0; i < unicorns.length; i++) {
   unicorns[i].onclick = unicornClick
   unicornArray.push({
-    image: unicorns[i],
+    image: unicorns[i], //didn't end up using this line
     total: 0,
   })
 }
