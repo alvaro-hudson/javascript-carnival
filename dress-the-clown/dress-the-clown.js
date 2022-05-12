@@ -12,8 +12,6 @@ let headIndex = 0
 let bodyIndex = 0
 let feetIndex = 0
 let clothingIndex = 0
-// let indexes = [headIndex, bodyIndex, feetIndex]
-// let indexes = document.getElementsByClassName('dress-an-image')
 
 function changeClothes() {
   if (headIndex > 5) {
@@ -36,7 +34,6 @@ function changeClothes() {
   head.src = `./images/head${headIndex}.png`
   body.src = `./images/body${bodyIndex}.png`
   feet.src = `./images/shoes${feetIndex}.png`
-  console.log(clothingIndex)
 }
 
 function changeIndexUp() {
@@ -59,23 +56,49 @@ function changeIndexDown() {
   }
 }
 
-document.addEventListener('keydown', function (e) {
-  switch (e.key) {
+//Function Idea from Gerard to not repeat myself by calling the changeClothes() function 4 times in my original .addEventListener() code
+function updateIndexes(key) {
+  switch (key) {
     case 'ArrowRight':
       changeIndexUp()
-      changeClothes()
       break
     case 'ArrowLeft':
       changeIndexDown()
-      changeClothes()
       break
     case 'ArrowUp':
       clothingIndex--
-      changeClothes()
       break
     case 'ArrowDown':
       clothingIndex++
-      changeClothes()
       break
   }
+}
+
+//Refactored addEventListener from Gerards advice
+document.addEventListener('keydown', function (e) {
+  updateIndexes(e.key)
+  changeClothes()
 })
+
+//ORIGINAL .ADDEVENTLISTENER I CAME UP WITH:
+
+// document.addEventListener('keydown', function (e) {
+//   switch (e.key) {
+//     case 'ArrowRight':
+//       changeIndexUp()
+//       changeClothes()
+//       break
+//     case 'ArrowLeft':
+//       changeIndexDown()
+//       changeClothes()
+//       break
+//     case 'ArrowUp':
+//       clothingIndex--
+//       changeClothes()
+//       break
+//     case 'ArrowDown':
+//       clothingIndex++
+//       changeClothes()
+//       break
+//   }
+// })
